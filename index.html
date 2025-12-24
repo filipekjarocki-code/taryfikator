@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>PRM – Usługi Medyczne</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="PRM">
+    <span>PRM</span>
+</header>
+
+<main>
+    <button class="menu-btn" onclick="toggleSection('badania')">
+        Badania Diagnostyczne
+    </button>
+    <div id="badania" class="content">
+        <p>Badanie morfologiczne → 500zł</p>
+        <p>Badanie moczu/kału → 300zł</p>
+        <p>Badanie toksykologiczne → 300zł</p>
+        <p>Badanie wzroku → 300zł</p>
+        <p>Badanie tomograficzne → 1000zł</p>
+        <p>Badanie rentgenowskie → 500zł</p>
+        <p>Badanie ultrasonograficzne → 1200zł</p>
+        <p>Badanie MRI → 1200zł</p>
+        <p>Badanie EKG → 400zł</p>
+    </div>
+
+    <button class="menu-btn" onclick="toggleSection('zabiegi')">
+        Zabiegi Medyczne
+    </button>
+    <div id="zabiegi" class="content">
+        <p>Rana postrzałowa styczna → 5000zł</p>
+        <p>Rana postrzałowa ślepa (bez powikłań) → 1500zł</p>
+        <p>Rana postrzałowa ślepa (z powikłaniami) → 2000zł</p>
+        <p>Rana postrzałowa przelotowa (bez powikłań) → 3000zł</p>
+        <p>Rana postrzałowa przelotowa (z powikłaniami) → 4000zł</p>
+        <p>Złamanie zamknięte (bez przemieszczenia) → 2000zł</p>
+        <p>Złamanie zamknięte (z przemieszczeniem) → 3500zł</p>
+        <p>Złamanie otwarte → 3500zł</p>
+        <p>Skręcenie I/II/III stopnia → 500 / 1000 / 1500zł</p>
+        <p>Operacja plastyczna → 7500zł</p>
+    </div>
+
+    <button class="menu-btn" onclick="toggleSection('inne')">
+        Inne Usługi Medyczne
+    </button>
+    <div id="inne" class="content">
+        <p>Transfuzja krwi → 500zł</p>
+        <p>Dializa → 500zł</p>
+        <p>Wózek / Kule → 1500 / 1000zł</p>
+        <p>Hospitalizacja (1 dzień) → 500zł</p>
+        <p>Wizyta domowa → 1000zł</p>
+        <p>Dojazd do pacjenta → 500–1000zł</p>
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
