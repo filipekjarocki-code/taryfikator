@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>trafikator PRM | 𝓦𝓪𝓿𝓮𝓡𝓟</title>
+    <title>PRM – Usługi Medyczne</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,47 +13,63 @@
 </header>
 
 <main>
+    <!-- Motyw i koszyk -->
+    <div class="top-bar">
+        <button id="theme-toggle">Jasny/Ciemny</button>
+        <button id="copy-cart">Kopiuj koszyk</button>
+    </div>
+
+    <div id="cart" class="cart">
+        <h3>Koszyk</h3>
+        <ul id="cart-items"></ul>
+        <p id="cart-total">Suma: 0zł</p>
+    </div>
+
+    <!-- Sekcje -->
     <button class="menu-btn" onclick="toggleSection('badania')">
         Badania Diagnostyczne
     </button>
     <div id="badania" class="content">
-        <p>Badanie morfologiczne → 500zł</p>
-        <p>Badanie moczu/kału → 300zł</p>
-        <p>Badanie toksykologiczne → 300zł</p>
-        <p>Badanie wzroku → 300zł</p>
-        <p>Badanie tomograficzne → 1000zł</p>
-        <p>Badanie rentgenowskie → 500zł</p>
-        <p>Badanie ultrasonograficzne → 1200zł</p>
-        <p>Badanie MRI → 1200zł</p>
-        <p>Badanie EKG → 400zł</p>
+        <p onclick="addToCart('Badanie morfologiczne', 500)">Badanie morfologiczne → 500zł</p>
+        <p onclick="addToCart('Badanie moczu/kału', 300)">Badanie moczu/kału → 300zł</p>
+        <p onclick="addToCart('Badanie toksykologiczne', 300)">Badanie toksykologiczne → 300zł</p>
+        <p onclick="addToCart('Badanie wzroku', 300)">Badanie wzroku → 300zł</p>
+        <p onclick="addToCart('Badanie tomograficzne', 1000)">Badanie tomograficzne → 1000zł</p>
+        <p onclick="addToCart('Badanie rentgenowskie', 500)">Badanie rentgenowskie → 500zł</p>
+        <p onclick="addToCart('Badanie ultrasonograficzne', 1200)">Badanie ultrasonograficzne → 1200zł</p>
+        <p onclick="addToCart('Badanie MRI', 1200)">Badanie MRI → 1200zł</p>
+        <p onclick="addToCart('Badanie EKG', 400)">Badanie EKG → 400zł</p>
     </div>
 
     <button class="menu-btn" onclick="toggleSection('zabiegi')">
         Zabiegi Medyczne
     </button>
     <div id="zabiegi" class="content">
-        <p>Rana postrzałowa styczna → 5000zł</p>
-        <p>Rana postrzałowa ślepa (bez powikłań) → 1500zł</p>
-        <p>Rana postrzałowa ślepa (z powikłaniami) → 2000zł</p>
-        <p>Rana postrzałowa przelotowa (bez powikłań) → 3000zł</p>
-        <p>Rana postrzałowa przelotowa (z powikłaniami) → 4000zł</p>
-        <p>Złamanie zamknięte (bez przemieszczenia) → 2000zł</p>
-        <p>Złamanie zamknięte (z przemieszczeniem) → 3500zł</p>
-        <p>Złamanie otwarte → 3500zł</p>
-        <p>Skręcenie I/II/III stopnia → 500 / 1000 / 1500zł</p>
-        <p>Operacja plastyczna → 7500zł</p>
+        <p onclick="addToCart('Rana postrzałowa styczna', 5000)">Rana postrzałowa styczna → 5000zł</p>
+        <p onclick="addToCart('Rana postrzałowa ślepa (bez powikłań)', 1500)">Rana postrzałowa ślepa (bez powikłań) → 1500zł</p>
+        <p onclick="addToCart('Rana postrzałowa ślepa (z powikłaniami)', 2000)">Rana postrzałowa ślepa (z powikłaniami) → 2000zł</p>
+        <p onclick="addToCart('Rana postrzałowa przelotowa (bez powikłań)', 3000)">Rana postrzałowa przelotowa (bez powikłań) → 3000zł</p>
+        <p onclick="addToCart('Rana postrzałowa przelotowa (z powikłaniami)', 4000)">Rana postrzałowa przelotowa (z powikłaniami) → 4000zł</p>
+        <p onclick="addToCart('Złamanie zamknięte (bez przemieszczenia)', 2000)">Złamanie zamknięte (bez przemieszczenia) → 2000zł</p>
+        <p onclick="addToCart('Złamanie zamknięte (z przemieszczeniem)', 3500)">Złamanie zamknięte (z przemieszczeniem) → 3500zł</p>
+        <p onclick="addToCart('Złamanie otwarte', 3500)">Złamanie otwarte → 3500zł</p>
+        <p onclick="addToCart('Skręcenie I stopnia', 500)">Skręcenie I stopnia → 500zł</p>
+        <p onclick="addToCart('Skręcenie II stopnia', 1000)">Skręcenie II stopnia → 1000zł</p>
+        <p onclick="addToCart('Skręcenie III stopnia', 1500)">Skręcenie III stopnia → 1500zł</p>
+        <p onclick="addToCart('Operacja plastyczna', 7500)">Operacja plastyczna → 7500zł</p>
     </div>
 
     <button class="menu-btn" onclick="toggleSection('inne')">
         Inne Usługi Medyczne
     </button>
     <div id="inne" class="content">
-        <p>Transfuzja krwi → 500zł</p>
-        <p>Dializa → 500zł</p>
-        <p>Wózek / Kule → 1500 / 1000zł</p>
-        <p>Hospitalizacja (1 dzień) → 500zł</p>
-        <p>Wizyta domowa → 1000zł</p>
-        <p>Dojazd do pacjenta → 500–1000zł</p>
+        <p onclick="addToCart('Transfuzja krwi', 500)">Transfuzja krwi → 500zł</p>
+        <p onclick="addToCart('Dializa', 500)">Dializa → 500zł</p>
+        <p onclick="addToCart('Wózek', 1500)">Wózek → 1500zł</p>
+        <p onclick="addToCart('Kule', 1000)">Kule → 1000zł</p>
+        <p onclick="addToCart('Hospitalizacja (1 dzień)', 500)">Hospitalizacja (1 dzień) → 500zł</p>
+        <p onclick="addToCart('Wizyta domowa', 1000)">Wizyta domowa → 1000zł</p>
+        <p onclick="addToCart('Dojazd do pacjenta', 500)">Dojazd do pacjenta → 500–1000zł</p>
     </div>
 </main>
 
