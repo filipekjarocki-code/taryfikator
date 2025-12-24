@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #000, #1a1a1a);
+    color: gold;
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: center;
+}
+
+header img {
+    width: 60px;
+}
+
+header span {
+    display: block;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+    gap: 20px;
+}
+
+.menu-btn {
+    width: 500px;
+    padding: 20px;
+    background: #111;
+    border: 1px solid gold;
+    color: gold;
+    font-size: 22px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.menu-btn:hover {
+    background: #222;
+}
+
+.content {
+    width: 480px;
+    background: #0d0d0d;
+    border: 1px solid gold;
+    border-radius: 10px;
+    padding: 15px;
+    display: none;
+}
+
+.content p {
+    margin: 8px 0;
+    font-size: 15px;
+}
