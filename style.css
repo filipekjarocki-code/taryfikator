@@ -5,6 +5,9 @@ body {
     color: gold;
 }
 
+/* --------------------
+   Header
+-------------------- */
 header {
     position: absolute;
     top: 20px;
@@ -22,6 +25,9 @@ header span {
     margin-top: 5px;
 }
 
+/* --------------------
+   Main layout
+-------------------- */
 main {
     display: flex;
     flex-direction: column;
@@ -30,6 +36,9 @@ main {
     gap: 20px;
 }
 
+/* --------------------
+   Menu buttons
+-------------------- */
 .menu-btn {
     width: 500px;
     padding: 20px;
@@ -46,6 +55,9 @@ main {
     background: #222;
 }
 
+/* --------------------
+   Content sections
+-------------------- */
 .content {
     width: 480px;
     background: #0d0d0d;
@@ -53,6 +65,10 @@ main {
     border-radius: 10px;
     padding: 15px;
     display: none;
+
+    /* ważne dla długich list (Operacje) */
+    max-height: 420px;
+    overflow-y: auto;
 }
 
 .content p {
@@ -63,16 +79,20 @@ main {
 
 .content p:hover {
     text-decoration: underline;
+    color: #ffd700;
 }
 
-/* Koszyk i top bar */
+/* --------------------
+   Top bar
+-------------------- */
 .top-bar {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-#theme-toggle, #copy-cart {
+#theme-toggle,
+#copy-cart {
     padding: 10px 20px;
     background: #111;
     color: gold;
@@ -81,10 +101,14 @@ main {
     cursor: pointer;
 }
 
-#theme-toggle:hover, #copy-cart:hover {
+#theme-toggle:hover,
+#copy-cart:hover {
     background: #222;
 }
 
+/* --------------------
+   Cart
+-------------------- */
 .cart {
     width: 500px;
     background: #0d0d0d;
@@ -94,9 +118,16 @@ main {
     margin-bottom: 20px;
 }
 
+.cart h3 {
+    margin-top: 0;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
 .cart ul {
     list-style: none;
     padding-left: 0;
+    margin: 0;
 }
 
 .cart li {
@@ -106,4 +137,49 @@ main {
 
 .cart li:hover {
     text-decoration: underline;
+    color: #ffd700;
+}
+
+/* --------------------
+   Scrollbar (estetyczny)
+-------------------- */
+.content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: gold;
+    border-radius: 3px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: #111;
+}
+
+/* --------------------
+   Light theme (JS)
+-------------------- */
+body.light-theme {
+    background: linear-gradient(135deg, #fff, #ccc);
+    color: #111;
+}
+
+body.light-theme .menu-btn,
+body.light-theme #theme-toggle,
+body.light-theme #copy-cart {
+    background: #eee;
+    color: #111;
+    border: 1px solid #111;
+}
+
+body.light-theme .content,
+body.light-theme .cart {
+    background: #f9f9f9;
+    border: 1px solid #111;
+    color: #111;
+}
+
+body.light-theme .content p:hover,
+body.light-theme .cart li:hover {
+    color: #000;
 }
