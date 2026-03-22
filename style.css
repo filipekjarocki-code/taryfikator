@@ -1,50 +1,46 @@
+/* --- Podstawowe --- */
 body {
     margin: 0;
     font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #000, #1a1a1a);
-    color: gold;
+    background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+    color: #fff;
 }
 
-/* --------------------
-   Header
--------------------- */
+/* Header */
 header {
     position: absolute;
     top: 20px;
     right: 20px;
     text-align: center;
 }
+header img { width: 60px; }
+header span { display: block; font-weight: bold; margin-top: 5px; }
 
-header img {
-    width: 60px;
-}
-
-header span {
-    display: block;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-/* --------------------
-   Main layout
--------------------- */
-main {
+/* Top bar */
+.top-bar {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 150px;
-    gap: 20px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+#theme-toggle, #copy-cart {
+    padding: 10px 20px;
+    background: #0033A0;
+    color: #fff;
+    border: 1px solid #E10600;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* --------------------
-   Menu buttons (NOWE 🔥)
--------------------- */
+/* Main layout */
+main { display: flex; flex-direction: column; align-items: center; margin-top: 150px; gap: 20px; }
+
+/* --- Przyciski zakładek z migającymi światłami --- */
 .menu-btn {
     position: relative;
     width: 500px;
     padding: 20px;
-    background: #111;
-    color: gold;
+    background: #0033A0;
+    color: #fff;
     font-size: 22px;
     letter-spacing: 2px;
     cursor: pointer;
@@ -52,184 +48,69 @@ main {
     border: none;
     overflow: hidden;
     z-index: 1;
+    animation: lightBlink 2s infinite;
 }
-
-/* Obracająca się gradientowa ramka */
 .menu-btn::before {
     content: "";
     position: absolute;
     inset: -2px;
-    background: conic-gradient(
-        from 0deg,
-        gold,
-        #ffcc00,
-        #ffaa00,
-        gold
-    );
-    animation: rotate 3s linear infinite;
+    background: conic-gradient(from 0deg, #E10600 0deg 180deg, #0033A0 180deg 360deg);
     z-index: -1;
+    border-radius: 12px;
+    animation: rotate 2s linear infinite;
 }
-
-/* Wewnętrzne tło (tworzy efekt ramki) */
 .menu-btn::after {
     content: "";
     position: absolute;
     inset: 2px;
-    background: #111;
+    background: #0033A0;
     border-radius: 8px;
     z-index: -1;
 }
+.menu-btn:hover { color: #ffcccc; }
 
-/* Glow efekt */
-.menu-btn:hover::before {
-    filter: blur(6px);
-}
+/* Animacje */
+@keyframes rotate { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+@keyframes lightBlink { 0%,50%,100%{opacity:1;} 25%,75%{opacity:0.8;} }
 
-.menu-btn:hover {
-    color: #fff;
-}
-
-/* Animacja */
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* --------------------
-   Content sections
--------------------- */
+/* --- Zakładki/sekcje --- */
 .content {
-    width: 480px;
-    background: #0d0d0d;
-    border: 1px solid gold;
+    width: 500px;
+    background: #111;
+    border: 2px solid #E10600;
     border-radius: 10px;
     padding: 15px;
     display: none;
     max-height: 420px;
     overflow-y: auto;
 }
+.content p { margin: 8px 0; cursor: pointer; }
+.content p:hover { text-decoration: underline; color: #E10600; }
 
-.content p {
-    margin: 8px 0;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.content p:hover {
-    text-decoration: underline;
-    color: #ffd700;
-}
-
-/* --------------------
-   Top bar
--------------------- */
-.top-bar {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-#theme-toggle,
-#copy-cart {
-    padding: 10px 20px;
-    background: #111;
-    color: gold;
-    border: 1px solid gold;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#theme-toggle:hover,
-#copy-cart:hover {
-    background: #222;
-}
-
-/* --------------------
-   Cart
--------------------- */
+/* --- Koszyk --- */
 .cart {
     width: 500px;
-    background: #0d0d0d;
-    border: 1px solid gold;
+    background: #111;
+    border: 2px solid #E10600;
     border-radius: 10px;
     padding: 15px;
-    margin-bottom: 20px;
 }
+.cart ul { list-style: none; padding: 0; }
+.cart li { cursor: pointer; }
+.cart li:hover { color: #E10600; }
 
-.cart h3 {
-    margin-top: 0;
-    text-align: center;
-    letter-spacing: 1px;
-}
-
-.cart ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-.cart li {
-    margin: 5px 0;
-    cursor: pointer;
-}
-
-.cart li:hover {
-    text-decoration: underline;
-    color: #ffd700;
-}
-
-/* --------------------
-   Scrollbar
--------------------- */
-.content::-webkit-scrollbar {
-    width: 6px;
-}
-
-.content::-webkit-scrollbar-thumb {
-    background: gold;
-    border-radius: 3px;
-}
-
-.content::-webkit-scrollbar-track {
-    background: #111;
-}
-
-/* --------------------
-   Light theme
--------------------- */
+/* --- Light theme --- */
 body.light-theme {
     background: linear-gradient(135deg, #fff, #ccc);
     color: #111;
 }
-
-body.light-theme .menu-btn {
-    background: #eee;
-    color: #111;
-}
-
-body.light-theme .menu-btn::after {
-    background: #eee;
-}
-
-body.light-theme #theme-toggle,
-body.light-theme #copy-cart {
-    background: #eee;
-    color: #111;
-    border: 1px solid #111;
-}
-
-body.light-theme .content,
-body.light-theme .cart {
+body.light-theme .menu-btn { background: #eee; color: #111; }
+body.light-theme .menu-btn::after { background: #eee; }
+body.light-theme .content, body.light-theme .cart {
     background: #f9f9f9;
     border: 1px solid #111;
     color: #111;
 }
-
-body.light-theme .content p:hover,
-body.light-theme .cart li:hover {
-    color: #000;
-}
+</style>
+</head>
+<body>
