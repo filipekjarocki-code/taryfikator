@@ -37,22 +37,66 @@ main {
 }
 
 /* --------------------
-   Menu buttons
+   Menu buttons (NOWE 🔥)
 -------------------- */
 .menu-btn {
+    position: relative;
     width: 500px;
     padding: 20px;
     background: #111;
-    border: 1px solid gold;
     color: gold;
     font-size: 22px;
     letter-spacing: 2px;
     cursor: pointer;
     border-radius: 10px;
+    border: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Obracająca się gradientowa ramka */
+.menu-btn::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(
+        from 0deg,
+        gold,
+        #ffcc00,
+        #ffaa00,
+        gold
+    );
+    animation: rotate 3s linear infinite;
+    z-index: -1;
+}
+
+/* Wewnętrzne tło (tworzy efekt ramki) */
+.menu-btn::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #111;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+/* Glow efekt */
+.menu-btn:hover::before {
+    filter: blur(6px);
 }
 
 .menu-btn:hover {
-    background: #222;
+    color: #fff;
+}
+
+/* Animacja */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* --------------------
@@ -65,8 +109,6 @@ main {
     border-radius: 10px;
     padding: 15px;
     display: none;
-
-    /* ważne dla długich list (Operacje) */
     max-height: 420px;
     overflow-y: auto;
 }
@@ -141,7 +183,7 @@ main {
 }
 
 /* --------------------
-   Scrollbar (estetyczny)
+   Scrollbar
 -------------------- */
 .content::-webkit-scrollbar {
     width: 6px;
@@ -157,14 +199,22 @@ main {
 }
 
 /* --------------------
-   Light theme (JS)
+   Light theme
 -------------------- */
 body.light-theme {
     background: linear-gradient(135deg, #fff, #ccc);
     color: #111;
 }
 
-body.light-theme .menu-btn,
+body.light-theme .menu-btn {
+    background: #eee;
+    color: #111;
+}
+
+body.light-theme .menu-btn::after {
+    background: #eee;
+}
+
 body.light-theme #theme-toggle,
 body.light-theme #copy-cart {
     background: #eee;
